@@ -9,9 +9,7 @@ read getrepostiories
 echo "------------------------"
 echo "--- Add repositories ---"
 echo "------------------------"
-#sudo add-apt-repository ppa:webupd8team/sublime-text-3
 cd ~/Downloads
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 wget https://download.sublimetext.com/sublime-text_build-3114_amd64.deb
 wget https://download.jetbrains.com/python/pycharm-community-2016.1.3.tar.gz
 
@@ -32,8 +30,8 @@ echo "--------------------"
 echo "--- Install apps ---"
 echo "--------------------"
 cd ~
-#sudo apt-get install --yes --force-yes sublime-text-installer
-sudo apt-get install --yes --allow git vlc vim mc ssh 
+sudo apt-get install --yes --allow -f install
+sudo apt-get install --yes --allow chromium-browser git vlc vim mc ssh 
 
 ## install arduino
 sudo apt-get install --yes --allow arduino arduino-core 
