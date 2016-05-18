@@ -12,7 +12,7 @@ echo "------------------------"
 cd ~/Downloads
 wget https://download.sublimetext.com/sublime-text_build-3114_amd64.deb
 wget https://download.jetbrains.com/python/pycharm-community-2016.1.3.tar.gz
-
+wget http://web.cadsoft.de/ftp/eagle/program/7.6/eagle-lin64-7.6.0.run
 
 
 # update
@@ -35,6 +35,9 @@ sudo apt-get install --yes --allow chromium-browser git vlc vim mc ssh
 
 ## install arduino
 sudo apt-get install --yes --allow arduino arduino-core 
+
+## install eagle PCB
+sudo apt-get install --yes --allow libssl1.0.0:i386 libcrypto++9:i386 libxrender1:i386 libxrandr2:i386 libxcursor1:i386 libfreetype6:i386 libfontconfig1:i386 libxi6:i386
 
 ## install python apps
 sudo apt-get install --yes --allow python3-pip web.py python-dev python3-dev apache2 libapache2-mod-wsgi libpq-dev postgresql postgresql-contrib sqlite3 libsqlite3-dev openjdk-9-jre-headless 
@@ -80,6 +83,10 @@ if [$getrepostiories = "yes"]
 		git clone https://abreazu@bitbucket.org/abreazu/web_pages_tests.git
 fi
 
+
+# install eagle PCB
+chmod a+x eagle-lin64-7.6.0.run
+./eagle-lin64-7.6.0.run
 
 
 #reboot device
