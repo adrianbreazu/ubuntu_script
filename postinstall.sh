@@ -16,7 +16,7 @@ wget https://download.jetbrains.com/python/pycharm-community-2016.2.3.tar.gz
 echo "--- Get Eagle ---"
 wget http://web.cadsoft.de/ftp/eagle/program/7.6/eagle-lin64-7.6.0.run
 echo "--- Get visual studio code ---"
-wget https://go.microsoft.com/fwlink/?LinkID=760868
+wget https://az764295.vo.msecnd.net/stable/9e4e44c19e393803e2b05fe2323cf4ed7e36880e/code_1.6.1-1476373175_amd64.deb
 echo "--- Get android ide ---"
 wget https://dl.google.com/dl/android/studio/ide-zips/2.2.1.0/android-studio-ide-145.3330264-linux.zip
 
@@ -52,7 +52,11 @@ postgresql-contrib
 sqlite3
 libsqlite3-dev
 openjdk-9-jdk
-
+build-essential
+guake
+imagemagick
+nodejs
+npm
 "
 cd ~
 sudo apt-get install --yes -f install
@@ -62,7 +66,6 @@ sudo apt-get install --yes $apps_to_be_installed
 echo "--- install eagle lib ---"
 eagle_lib="
 libssl1.0.0:i386
-libcrypto++9:i386
 libxrender1:i386
 libxrandr2:i386
 libxcursor1:i386
@@ -72,38 +75,25 @@ libxi6:i386
 "
 sudo apt-get install --yes $eagle_lib
 
+echo "--- install android lib ---"
 android_lib="
 libc6:i386
 libncurses5:i386
 libstdc++6:i386
 lib32z1
-lib32bz2-1.0
 "
 sudo apt-get install --yes $android_lib
 
 ## install python apps
 echo "--- install python libs ---"
 pyhotn_libs="
+python-pip
 python3-pip
-web.py
+python3-virtualenv
+python-virtualenv
 python-dev
 python3-dev
-python-qt4
-python-qt4-dbus
-python-qt4-dev
-python-qt4-doc
-python-qt4-gl
-python-qt4-phonon
-python-qt4-sql
-python-qtmobility
-python-qwt3d-qt4
-python-qwt5-qt4
-qt4-dev-tools
-python3-dbus.mainloop.qt
-python3-pyqt4
-python3-pyqt4.phononpython3-pyqt4.qsci
-python3-pyqt4.qtopengl
-python3-pyqt4.qtsql
+python-web2py
 "
 sudo apt-get install --yes $pyhotn_libs
 
@@ -120,10 +110,19 @@ echo "--- install *.deb files ---"
 sudo dpkg -i ~/Downloads/*.deb
 echo "--- install pycharm ---"
 sudo mkdir /opt/pycharm.2016.2.3
-sudo tar -xzvf pycharm-community-2016.1.3.tar.gz -C /opt/pycharm.2016.1.3
+sudo tar -xzvf pycharm-community-2016.2.3.tar.gz -C /opt/pycharm.2016.2.3
 echo "--- install arduino ide ---"
 sudo mkdir /opt/arduinostudio
-sudo tar -xzvf android-studio-ide-145.3330264-linux.zip -C /opt/arduinostudio
+sudo unzip android-studio-ide-145.3330264-linux.zip -d /opt/arduinostudio
+
+
+# Configure Ubuntu installation
+echo "-----------------------------"
+echo "--- Config Ubuntu install ---"
+echo "-----------------------------"
+gsettings set com.canonical.indicator.power show-percentage true
+gsettings set com.canonical.indicator.power show-time true
+
 
 
 
@@ -157,9 +156,10 @@ fi
 
 
 # install eagle PCB
-#cd ~/Downloads
-#chmod a+x eagle-lin64-7.6.0.run
-#./eagle-lin64-7.6.0.run
+cd ~/Downloads
+chmod a+x eagle-lin64-7.6.0.run
+./eagle-lin64-7.6.0.run
+
 
 
 #reboot device
