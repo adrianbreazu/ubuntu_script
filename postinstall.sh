@@ -120,11 +120,18 @@ sudo unzip android-studio-ide-145.3330264-linux.zip -d /opt/arduinostudio
 echo "-----------------------------"
 echo "--- Config Ubuntu install ---"
 echo "-----------------------------"
+#configure battery
 gsettings set com.canonical.indicator.power show-percentage true
 gsettings set com.canonical.indicator.power show-time true
-
-
-
+# enable workspace + hide show desktop
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
+gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
+gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ disable-show-desktop true
+# set background image
+gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/IMG_7632_by_Jobin_Babu.jpg
+# fix privacy
+gsettings set org.gnome.desktop.privacy remember-recent-files false
+gsettings set org.gnome.desktop.screensaver lock-enabled true
 
 
 # make repository folder
