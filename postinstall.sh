@@ -57,6 +57,7 @@ guake
 imagemagick
 nodejs
 npm
+gnome-online-accounts
 "
 cd ~
 sudo apt-get install --yes -f install
