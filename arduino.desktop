@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eagle
+Comment=Custom icon
+Exec=/opt/arduino-1.8.2/arduino
+Icon=/opt/arduino-1.8.2/lib/arduino.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;

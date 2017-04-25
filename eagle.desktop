@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Eagle
+Comment=Custom icon
+Exec=/opt/eaglepcb.8.1.1/eagle
+Icon=/opt/eaglepcb.8.1.1/bin/eagleicon16.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Android studio
+Comment=Custom icon
+Exec=/opt/androidstudio.2.3.1/android-studio/bin/studio.sh
+Icon=/opt/androidstudio.2.3.1/android-studio/bin/studio.png
+Terminal=false
+Type=Application
+Categories=Utility;Application;

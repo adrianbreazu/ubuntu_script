@@ -12,13 +12,14 @@ cd ~/Downloads
 echo "--- Get Sublime 3 ---"
 wget https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
 echo "--- Get PyCharm 2016.2.3 ---"
-wget https://download.jetbrains.com/python/pycharm-community-2016.2.3.tar.gz
+wget https://download.jetbrains.com/python/pycharm-community-2017.1.1.tar.gz
 echo "--- Get Eagle ---"
-wget http://web.cadsoft.de/ftp/eagle/program/7.6/eagle-lin64-7.6.0.run
-echo "--- Get visual studio code ---"
-wget https://az764295.vo.msecnd.net/stable/9e4e44c19e393803e2b05fe2323cf4ed7e36880e/code_1.6.1-1476373175_amd64.deb
+wget http://www.autodesk.com/eagle-download-lin
+echo "--- Get adrduino ---"
+wget https://www.arduino.cc/download_handler.php?f=/arduino-1.8.2-linux64.tar.xz
 echo "--- Get android ide ---"
-wget https://dl.google.com/dl/android/studio/ide-zips/2.2.1.0/android-studio-ide-145.3330264-linux.zip
+wget https://dl.google.com/dl/android/studio/ide-zips/2.3.1.0/android-studio-ide-162.3871768-linux.zip
+
 
 # update
 echo "---------------------------"
@@ -27,37 +28,34 @@ echo "---------------------------"
 sudo apt-get --yes update
 sudo apt-get --yes upgrade
 
-
-
-
+sudo apt-get install nvidia-375
 
 # install apps
 echo "--------------------"
 echo "--- Install apps ---"
 echo "--------------------"
 apps_to_be_installed="
-chromium-browser
-git
-vlc
-vim
-mc
-ssh
-arduino
-arduino-core
-apache2
-libapache2-mod-wsgi
-libpq-dev
-postgresql
-postgresql-contrib
-sqlite3
-libsqlite3-dev
-openjdk-9-jdk
-build-essential
-guake
-imagemagick
-nodejs
-npm
-gnome-online-accounts
+chromium-browser 
+git 
+vlc 
+vim 
+mc 
+ssh 
+arduino 
+arduino-core 
+libpq-dev 
+postgresql 
+postgresql-contrib 
+sqlite3 
+libsqlite3-dev 
+openjdk-9-jdk 
+build-essential 
+imagemagick 
+nodejs 
+npm 
+gnome-online-accounts 
+python 
+python3.6
 "
 cd ~
 sudo apt-get install --yes -f install
@@ -66,35 +64,34 @@ sudo apt-get install --yes $apps_to_be_installed
 ## install eagle PCB
 echo "--- install eagle lib ---"
 eagle_lib="
-libssl1.0.0:i386
-libxrender1:i386
-libxrandr2:i386
-libxcursor1:i386
-libfreetype6:i386
-libfontconfig1:i386
-libxi6:i386
+libssl1.0.0:i386 
+libxrender1:i386 
+libxrandr2:i386 
+libxcursor1:i386 
+libfreetype6:i386 
+libfontconfig1:i386 
+libxi6:i386 
 "
 sudo apt-get install --yes $eagle_lib
 
 echo "--- install android lib ---"
 android_lib="
-libc6:i386
-libncurses5:i386
-libstdc++6:i386
-lib32z1
+libc6:i386 
+libncurses5:i386 
+libstdc++6:i386 
+lib32z1 
 "
 sudo apt-get install --yes $android_lib
 
 ## install python apps
 echo "--- install python libs ---"
 pyhotn_libs="
-python-pip
-python3-pip
-python3-virtualenv
-python-virtualenv
+python-pip 
+python3-pip 
+python3.6-venv 
+python-virtualenv 
 python-dev
-python3-dev
-python-web2py
+python3.6-dev
 "
 sudo apt-get install --yes $pyhotn_libs
 
@@ -110,11 +107,17 @@ cd ~/Downloads
 echo "--- install *.deb files ---"
 sudo dpkg -i ~/Downloads/*.deb
 echo "--- install pycharm ---"
-sudo mkdir /opt/pycharm.2016.2.3
-sudo tar -xzvf pycharm-community-2016.2.3.tar.gz -C /opt/pycharm.2016.2.3
+sudo mkdir /opt/pycharm.2017.1.1
+sudo tar -xzvf pycharm-community-2017.1.1.tar.gz -C /opt/pycharm.2017.1.1
+echo "--- install eagle pcb ---"
+sudo mkdir /opt/eaglepcb.8.1.1
+sudo tar -xzvf Autodesk_EAGLE_8.1.1_English_Linux_64bit.tar.gz -C /opt/eaglepcb.8.1.1
+echo "--- install arduino ---"
+sudo mkdir /opt/arduino-1.8.2
+sudo tar -xzvf arduino-1.8.2-linux64.tar.xz -C /opt/arduino-1.8.2
 echo "--- install arduino ide ---"
-sudo mkdir /opt/arduinostudio
-sudo unzip android-studio-ide-145.3330264-linux.zip -d /opt/arduinostudio
+sudo mkdir /opt/androidstudio.2.3.1
+sudo unzip android-studio-ide-162.3871768-linux.zip -d /opt/androidstudio.2.3.1
 
 
 # Configure Ubuntu installation
@@ -129,7 +132,7 @@ gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ hsize 2
 gsettings set org.compiz.core:/org/compiz/profiles/unity/plugins/core/ vsize 2
 gsettings set org.compiz.unityshell:/org/compiz/profiles/unity/plugins/unityshell/ disable-show-desktop true
 # set background image
-gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/IMG_7632_by_Jobin_Babu.jpg
+gsettings set org.gnome.desktop.background picture-uri file:///usr/share/backgrounds/there_is_something_human_in_that_stuff_by_Pierre_Cante.jpg
 # fix privacy
 gsettings set org.gnome.desktop.privacy remember-recent-files false
 gsettings set org.gnome.desktop.screensaver lock-enabled true
@@ -161,13 +164,6 @@ if [$getrepostiories = "yes"]
 		git clone https://bitbucket.org/abreazu/bruno-home
 		git clone https://abreazu@bitbucket.org/abreazu/web_pages_tests.git
 fi
-
-
-# install eagle PCB
-cd ~/Downloads
-chmod a+x eagle-lin64-7.6.0.run
-./eagle-lin64-7.6.0.run
-
 
 
 #reboot device
